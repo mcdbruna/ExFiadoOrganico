@@ -6,31 +6,30 @@ public class FiadoOrganico {
 
 	public static void main(String[] args) {
 		
-		Consumidor consumidor = new Consumidor();
-		consumidor.fiados = new int [10];
 
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Informe o nome do cliente: ");
-		consumidor.nome = scanner.nextLine();
+		
+		String nome = scanner.nextLine();
+		Consumidor consumidor = new Consumidor(nome);
+		
+		System.out.print("Informe o numero de telefone: ");
+		String telefone = scanner.nextLine();
+		Consumidor Consumidor = new Consumidor(telefone);
+		
 		System.out.print("Infome o valo da compra: ");
-		consumidor.fiados [0] = Integer.valueOf(scanner.nextInt());
+		int fiado = Integer.valueOf(scanner.nextInt());
+		consumidor.registrarFiado(fiado);
 	
 		
-		int total = somawhile(consumidor.fiados);
-		
-		while (total <=0) {
-			System.out.println("Valor invalido!");
-			System.out.print("Infome o valo da compra: ");
-			consumidor.fiados [0] = Integer.valueOf(scanner.nextInt());
-			
-			total = somawhile(consumidor.fiados);
-		}
+		int total = consumidor.getFiado();
+
 
 			if (total >= 100) {
-			System.out.println("Cliente " + consumidor.nome + " Deve: " + total + ", Ganhou brinde.");
+			System.out.println("Cliente " + consumidor.getNome() +  " Deve: " + total + ", Ganhou brinde.");
 			
 			} else {
-			System.out.println("Cliente " + consumidor.nome + " Deve: " + total);
+			System.out.println("Cliente " + consumidor.getNome() +  " Deve: " + total);
 
 		}
 	
